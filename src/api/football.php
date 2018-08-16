@@ -6,7 +6,7 @@
 				* qty
 				* pageNo
 
-
+		//
 		读取文件：
 			qty=10
 			pageNo  	array_slice(idx,len)
