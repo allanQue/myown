@@ -1,0 +1,156 @@
+.register{
+    width: 960px;
+    /*height: 466px;*/
+    margin:0 auto;
+    background: #f6f6f6;
+}
+.register .reg_head{
+    width: 960px;
+    height: 80px;
+}
+.register .reg_head h1{
+    width:220px;
+    height:80px;
+
+}
+.register h1 a{
+    position: relative;
+    width: 400px;
+    height: 80px;
+    display: block;
+    padding: 15px 0;
+}
+.register h1 a span{
+    text-decoration: none;
+    color: #c80f1e;
+    font-weight: normal;
+    font-size: 24px;
+    position: absolute;
+    top: 23px;
+    left: 140px;
+    line-height: 36px;
+    border-left: 2px solid #d6d6d6;
+    padding-left: 40px;
+}
+
+.register .reg_wrap{
+    background: #fff url('../img/reg_1regbackground.png') no-repeat  right bottom;
+    border: solid 8px #f0f0f0;
+    min-height: 340px;
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+    position:relative;
+}
+.register .reg_wrap .zhuce_tab ul .fz{
+    border-top: solid 2px #c80f1e;
+    font-size: 16px;
+    color: #666;
+    background: #fff;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    border-right: solid 1px #ddd;
+}
+.register .reg_wrap .zhuce_tab ul .zhanghao_zc{
+    float: left;
+    height: 40px;
+    font-size: 16px;
+    color: #666;
+    line-height: 40px;
+    padding: 0 20px;
+    border-right:1px  solid #ddd;
+}
+
+.register .reg_wrap .regtip_right{
+        margin: 10px 10px 0 0;
+        float:right;
+        font-size:12px;
+        color:#333;
+}
+.register .reg_wrap .regtip_right a{
+    background: #9c3;
+    color: #fff;
+    margin-left: 5px;
+    padding: 2px;
+    text-shadow: none;
+}
+
+.register .reg_wrap .reg_body{
+    position:absolute;
+    top:60px;
+    left:0;
+    color:#333;
+    font-size:12px;
+    /*height:244px;*/
+    width:944px;
+}
+.register .reg_wrap .reg_body div{
+    height:31px;
+    margin-bottom:15px;
+}
+.register .reg_wrap .reg_body .reg_lastDiv{
+    height:40px;
+}
+.register .reg_wrap .reg_body div .regLabel{
+    color: #999;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    width: 100px;
+}
+.register .reg_wrap .reg_body div .phoneNum{
+    border: solid 1px #ccc;
+    border-radius: 2px;
+    box-shadow: inset 0 2px #f3f3f3;
+    height: 28px;
+    line-height: 28px;
+    text-indent: 5px;
+    width: 240px;
+    margin:0 10px;
+}
+.register .reg_wrap .reg_body div .code{
+    height:30px;
+    width:80px;
+    display:inline-block;
+    background-color:#c80f1e;
+    color:#fff;
+    font-size:14px;
+    text-align:center;
+    line-height:30px;
+    border-radius:3px 3px 3px 3px;
+}
+
+
+.register .reg_wrap .reg_body div .phoneCode{
+    border: solid 1px #ccc;
+    border-radius: 2px;
+    box-shadow: inset 0 2px #f3f3f3;
+    height: 28px;
+    line-height: 28px;
+    text-indent: 5px;
+    width: 122px;
+    margin:0 10px;
+}
+.register .reg_wrap .reg_body div .phoneNote{
+    border: solid 1px #ccc;
+    border-radius: 2px;
+    box-shadow: inset 0 2px #f3f3f3;
+    height: 28px;
+    line-height: 28px;
+    text-indent: 5px;
+    width: 122px;
+    margin:0 10px;
+}
+.register .reg_wrap .reg_body div .reg_btn{
+    background: #c80f1e;
+    border: 0;
+    border-radius: 3px;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    height: 40px;
+    width: 160px;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>registerFast</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/registerFast.css" />
+</head>
+<body>
+    <div class="register">
+
+        <div class="reg_head">
+            
+            <h1 class="log_logo left fl">
+                <a href="/">
+                    <img src="../img/reg_1reglogo.png" width="100" height="50">
+                    <span>新用户注册</span>
+                </a>
+            </h1>
+            
+        </div>
+
+
+        <div class="reg_wrap">
+            
+            <div class="zhuce_tab">
+                <ul>
+                    <li class="fz">快速注册</li>
+                    <li class="zhanghao_zc">账号注册</li>
+                </ul>
+            </div>
+            <div class="regtip_right">
+                已有九机网账号？现在就
+                <a href="">登录</a>
+            </div>
+            <div class="reg_body">
+                <div class="reg">
+                    <div>
+                        <label for="" class="regLabel"><i>*</i>手机号码</label>
+                        <input type="text" class="phoneNum"/>
+                        <label for="">手机号码非常重要，找回密码及购物都会用到</label>
+                    </div>
+                    <div class="reg_scd">
+                        <label for="" class="regLabel"><i>*</i>验证码</label>
+                        <input type="text" class="phoneCode"/>
+                        <span class="code"> </span>
+                        <a href="">看不清楚？换一张</a>
+                    </div>
+                    <div>
+                        <label for="" class="regLabel"><i>*</i>短信验证码</label>
+                        <input type="text" class="phoneNote"/>
+                        <a class="btn" id="getCode" href="">
+                            <span id="dyMobileButton">获取短信验证码</span>
+                        </a>
+                    </div>
+                    <div>
+                        <label for="" class="regLabel"></label>
+                        <input type="checkbox" checked="checked" style="vertical-align: middle; margin-right: 5px; "/>
+                         <label for="mmprovision" style="color: #999;">我已认真阅读并同意
+                            <a href="" style="color: #39f; margin: 0 5px;">《九机网用户协议》</a>
+                        </label>
+                    </div>
+                    <div class="reg_lastDiv">
+                        <label for="" class="regLabel"></label>
+                        <button onclick="Register()" id="regbut" class="reg_btn">提交注册</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/jiujicommon.js"></script>
+    <script type="text/javascript">
+
+    document.addEventListener('DOMContentLoaded',function(){
+       var vcode = document.querySelector('.code');
+
+        var str = 'abcdefghijklmnopqrstuvwxyz0123456789';//str[35]
+
+
+        vcode.onclick = function(){
+            randomCode();
+        }
+
+        randomCode();
+
+
+        // 封装函数
+        function randomCode(){
+            // 随机生成一个4位验证码（包含字母）
+            var _code = '';
+            for(var i=0;i<4;i++){
+                var index = parseInt(Math.random()*str.length) //不可能大于36
+                _code += str[index]
+            }
+            vcode.innerHTML = _code.toUpperCase();
+        }
+
+
+
+    })
+
+    </script>
+</body>
+</html>

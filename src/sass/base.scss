@@ -1,0 +1,46 @@
+
+
+// // 变量
+// $mainColor:#58bc58;
+// $container:1200px;
+// $sidebar:300px;
+// $mainContent:800px;
+// @for $i from 1 to 7{
+//     h#{$i}{
+//         font-size:30px/$i*2;color:#333;
+//     }
+// }
+// body{margin:0;padding:0;}
+// ul{list-style:none;padding:0;margin:0;}
+// li{float:left;}
+.nav .search{width: 980px;height: 145px;
+       .search_left{
+                padding:23px 0 0 115px;
+                .search_box{
+                    width:464px;
+                    height:38px;
+                    border:2px solid #CD0D1A;
+                }
+                .search_btn{
+                    width:70px;
+                    height:38px;
+                    background-color:#CD0D1A;
+                    color:#fff;
+                }
+       }
+       p{
+        line-height:26px;
+        font-size:12px;
+        color:#9C9A9D;
+        a{
+            display:inline-block;
+            margin-right:12px;
+        }
+       } 
+        .search_right{
+            height:55px;
+            padding-left:15px 0 0 23px;
+            a{display:inline-block;margin-right:31px;line-height:26px;font-size:16px;color:#4B3528;}
+
+        } 
+}

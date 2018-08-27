@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>register</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/register.css" />
+
+</head>
+<body>
+    <div class="register">
+
+        <div class="reg_head">
+            
+            <h1 class="log_logo left fl">
+                <a href="/">
+                    <img src="../img/reg_1reglogo.png" width="100" height="50">
+                    <span>新用户注册</span>
+                </a>
+            </h1>
+            
+        </div>
+
+
+        <div class="reg_wrap">
+            
+            <div class="zhuce_tab">
+                <ul>
+                    <li class="fz">快速注册</li>
+                    <li class="zhanghao_zc">账号注册</li>
+                </ul>
+            </div>
+            <div class="regtip_right">
+                已有九机网账号？现在就
+                <a href="">登录</a>
+            </div>
+            <div class="reg_bodyR">
+                <div class="reg form">
+                    <div class="form-group">
+                        <label for="" class="regLabel"><i>*</i>用户名</label>
+                        <input type="text" class="username form-control"/>
+                        <label for="">4-16位字母、数字或汉字，请不要输入特殊字符！</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="regLabel"><i>*</i>密码</label>
+                        <input type="text" class="password form-control"/>
+                        <label for="">6个字符以上的字母或数字</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="regLabel"><i>*</i>重复密码</label>
+                        <input type="text" class="rpassword form-control"/>
+                        <label for="">4请重复输入密码确认不会输错</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="regLabel"><i>*</i>手机号码</label>
+                        <input type="text" class="phoneNum form-control"/>
+                        <label for="">手机号码非常重要，找回密码及购物都会用到</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="regLabel"><i>*</i>邮箱地址</label>
+                        <input type="text" class="email form-control"/>
+                        <label for="">请填写邮箱，用于找回密码</label>
+                    </div> 
+                    <div class="reg_scd form-group">
+                        <label for="" class="regLabel"><i>*</i>验证码</label>
+                        <input type="text" class="phoneCode form-control"/>
+                        <span class="code"> </span>
+                        <a href="">看不清楚？换一张</a>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="regLabel"><i>*</i>短信验证码</label>
+                        <input type="text" class="phoneNote form-control"/>
+                        <a class="btn" id="getCode" href="">
+                            <span id="dyMobileButton">获取短信验证码</span>
+                        </a>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="regLabel"></label>
+                        <input type="checkbox" checked="checked" style="vertical-align: middle; margin-right: 5px; "/>
+                         <label for="mmprovision" style="color: #999;">我已认真阅读并同意
+                            <a href="" style="color: #39f; margin: 0 5px;">《九机网用户协议》</a>
+                        </label>
+                    </div>
+                    <div class="reg_lastDiv form-group">
+                        <label for="" class="regLabel"></label>
+                        <button  id="regbut" class="reg_btn  btn-success">提交注册</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/jiujicommon.js"></script>
+    <script type="text/javascript">
+
+    document.addEventListener('DOMContentLoaded',function(){
+       var vcode = document.querySelector('.code');
+
+        var str = 'abcdefghijklmnopqrstuvwxyz0123456789';//str[35]
+
+
+        vcode.onclick = function(){
+            randomCode();
+        }
+
+        randomCode();
+
+
+        // 封装函数
+        function randomCode(){
+            // 随机生成一个4位验证码（包含字母）
+            var _code = '';
+            for(var i=0;i<4;i++){
+                var index = parseInt(Math.random()*str.length) //不可能大于36
+                _code += str[index]
+            }
+            vcode.innerHTML = _code.toUpperCase();
+        }
+        var username = document.querySelector('.username');
+        var password = document.querySelector('.password');
+        var rpossword = document.querySelector('.rpossword');
+        var phoneNum = document.querySelector('.phoneNum');
+        var email = document.querySelector('.email');
+        var phoneNote = document.querySelector('.phoneNote');
+        var regbtn = document.querySelector('.reg_btn');
+        let status = [200,304];
+        let isok = false;
+
+
+
+        regbtn.onclick = () =>{
+            if(!isok){
+                return false;
+            }
+
+            let _username = username.value;
+            var _password = possword.value;
+
+            let xhr = new XMLHttpRequest();
+                xhr.onload = ()=>{
+                    if(status.indexOf(xhr.status) >= 0){
+                        console.log(xhr.responseText);
+                    }
+                }
+                xhr.open('post','../api/user.php',true);
+
+                // 设置请求头，以便后端接收post数据
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+
+
+                xhr.send(`username=${_username}&password=${_password}`);
+
+
+        }
+
+        username.onblur = () =>{
+            let _username = username.value;
+            let xhr = new XMLHttpRequest();
+            xhr.onload = ()=>{
+                    if(status.indexOf(xhr.status) >= 0){
+                        var formGroup = username.parentNode;
+                        if(xhr.responseText === 'yes'){
+                            isok = true;
+
+                            // 成功：添加has-success类
+                            formGroup.classList.remove('has-error');
+                            formGroup.classList.add('has-success');
+                            username.nextElementSibling.innerText = '';
+                        }else if(xhr.responseText === 'no'){
+                            isok = false;
+                            formGroup.classList.remove('has-success');
+                            formGroup.classList.add('has-error');
+                            username.nextElementSibling.innerText = '用户名已存在';
+                        }
+                    }
+                }
+                xhr.open('get','../api/user.php?username='+_username,true);
+                xhr.send();
+
+        }
+
+
+
+
+    })
+
+    </script>
+</body>
+</html>

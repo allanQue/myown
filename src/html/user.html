@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>用户信息</title>
+</head>
+<body>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded',()=>{
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    var data = JSON.parse(xhr.responseText);
+                    console.log(data);
+                }
+            }
+            xhr.open('get','../api/user.php',true);
+            xhr.send();
+        });
+
+    </script>
+</body>
+</html>
